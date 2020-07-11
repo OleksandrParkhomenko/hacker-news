@@ -13,9 +13,12 @@ from . import models
 # def test_task():
 # 	print("test task")
 
-
+# @periodic_task(
+# 	run_every=(crontab(minute=0, hour=0)), 
+# 	name="reset_upvotes"
+# 	)
 @periodic_task(
-	run_every=(timedelta(seconds=10)), 
+	run_every=(crontab(minute='*/1')), 
 	name="reset_upvotes"
 	)
 def reset_upvotes():

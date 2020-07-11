@@ -20,13 +20,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'n4_&$c)=kv6kuq%cji)qscaj)c2so$(zj$u-w_pd!!)=%!t1qx'
+SECRET_KEY = "n4_&$c)=kv6kuq%cji)qscaj)c2so$(zj$u-w_pd!!)=%!t1qx"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+#ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = []
+DEBUG = int(os.environ.get("DEBUG", default=0))
 
+# 'DJANGO_ALLOWED_HOSTS' should be a single string of hosts with a space between each.
+# For example: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]'
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 # Application definition
 
@@ -79,9 +83,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hacker_news',
-        'USER': 'dev',
-        'PASSWORD': 'devpass',
-        'HOST': 'localhost'
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db'
     }
 }
 
@@ -128,7 +132,7 @@ STATIC_URL = '/static/'
 # CELERY related settings 
 #CELERY_BROKER_URL = 'redis://localhost:6379/0'
 #CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-BROKER_URL = 'redis://localhost:6379/0'
+BROKER_URL = 'redis://redis:6379/0'
 
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json' 
