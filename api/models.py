@@ -10,14 +10,14 @@ class Post(models.Model):
 	#author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	#created_date = models.DateTimeField(auto_now=False, auto_now_add=False, null=True, blank=True)
 	created_date = models.DateTimeField(default=timezone.now, blank=True)
-	upvotes_amount = models.IntegerField(blank=True, null=True)
+	upvotes_amount = models.IntegerField(default=0, blank=True)
 
 	def __str__(self):
 		return self.title
 
 
 class Comment(models.Model):
-	author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+	author = models.CharField(max_length=200)
 	content = models.TextField(null=True, blank=True)
 	#created_date = models.DateTimeField(auto_now=False, auto_now_add=False, null=True, blank=True)
 	created_date = models.DateTimeField(default=timezone.now, blank=True)
