@@ -16,7 +16,7 @@ services:
       - 8000:8000
     environment:
       - DEBUG=1
-      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1] 0.0.0.0 146.148.109.133
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1] 0.0.0.0 35.202.92.138
     depends_on:
       - redis
       - db
