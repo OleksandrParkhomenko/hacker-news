@@ -17,13 +17,6 @@ class PostViewset(viewsets.ModelViewSet):
         serializer = self.get_serializer(post, many=False)
         return Response(serializer.data)
 
-    @action(detail=False, methods=["POST"], name="reset_upvotes")
-    def reset_upvotes(self, request):
-        posts = models.Post.objects.all()
-        posts.update(upvotes_amount=models.Post.upvotes_amount.field.default)
-        serializer = self.get_serializer(posts, many=True)
-        return Response(serializer.data)
-
 
 class CommentViewset(viewsets.ModelViewSet):
     queryset = models.Comment.objects.all()
