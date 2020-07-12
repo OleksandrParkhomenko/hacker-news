@@ -1,7 +1,7 @@
 # Hacker News
 Simple news board API
 
-## **Functional Requirements**
+## Functionality
 
 - Create CRUD API to manage news posts. The post will have the next fields: title, link, creation date, amount of upvotes, author-name
 - Posts should have CRUD API to manage comments on them. The comment will have the next fields: author-name, content, creation date
