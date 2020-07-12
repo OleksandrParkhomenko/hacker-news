@@ -7,32 +7,34 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('api', '0004_auto_20200711_1033'),
+        ("api", "0004_auto_20200711_1033"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='comment',
-            options={'ordering': ['created_date']},
+            name="comment", options={"ordering": ["created_date"]},
         ),
         migrations.AddField(
-            model_name='comment',
-            name='post',
-            field=models.ForeignKey(default=None, on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='api.Post'),
+            model_name="comment",
+            name="post",
+            field=models.ForeignKey(
+                default=None,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="comments",
+                to="api.Post",
+            ),
         ),
         migrations.AlterField(
-            model_name='comment',
-            name='author',
-            field=models.CharField(default='anonymous', max_length=200),
+            model_name="comment",
+            name="author",
+            field=models.CharField(default="anonymous", max_length=200),
         ),
         migrations.AlterField(
-            model_name='comment',
-            name='content',
-            field=models.TextField(null=True),
+            model_name="comment", name="content", field=models.TextField(null=True),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='author',
-            field=models.CharField(default='anonymous', max_length=200),
+            model_name="post",
+            name="author",
+            field=models.CharField(default="anonymous", max_length=200),
         ),
     ]
