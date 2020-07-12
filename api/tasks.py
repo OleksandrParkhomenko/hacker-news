@@ -5,14 +5,7 @@ from celery.schedules import crontab
 from . import models
 
 
-# def test_task():
-# 	print("test task")
-
-# @periodic_task(
-# 	run_every=(crontab(minute=0, hour=0)),
-# 	name="reset_upvotes"
-# 	)
-@periodic_task(run_every=(crontab(minute="*/1")), name="reset_upvotes")
+@periodic_task(run_every=(crontab(minute=0, hour=0)), name="reset_upvotes")
 def reset_upvotes():
     posts = models.Post.objects.all()
     posts.update(upvotes_amount=models.Post.upvotes_amount.field.default)
