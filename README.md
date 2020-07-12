@@ -3,10 +3,10 @@ Simple news board API
 
 ## Functionality
 
-- Create CRUD API to manage news posts. The post will have the next fields: title, link, creation date, amount of upvotes, author-name
-- Posts should have CRUD API to manage comments on them. The comment will have the next fields: author-name, content, creation date
-- There should be an endpoint to upvote the post
-- We should have a recurring job running once a day to reset post upvotes count
+- Created CRUD API to manage news posts. The post have the next fields: title, link, creation date, amount of upvotes, author-name
+- Posts have CRUD API to manage comments on them. The comment have the next fields: author-name, content, creation date
+- There is an endpoint to upvote the post
+- Created a recurring job running once a day to reset post upvotes count
 
 ## How to run localy 
 
