@@ -11,6 +11,7 @@ Simple news board API
 ## How to run localy 
 
 - ```git clone https://github.com/OleksandrParkhomenko/hacker-news```
+- ```cd hacker-news```
 - ```sudo docker-compose up -d --build```
 - API runs on http://0.0.0.0:8000/api/
 
